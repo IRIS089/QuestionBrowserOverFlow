@@ -14,10 +14,11 @@
 #import "FakeQuestionBuilder.h"
 
 @implementation QuestionCreationTests{
-    @private
-        StackOverflowManager *mgr;
-        MockStackOverflowManagerDelegate *delegate;
-        NSError *underlyingError;
+@private
+    StackOverflowManager *mgr;
+    MockStackOverflowManagerDelegate *delegate;
+    NSError *underlyingError;
+    FakeQuestionBuilder *builder;
 }
 
 -(void)setUp{
@@ -25,12 +26,15 @@
     delegate = [[MockStackOverflowManagerDelegate alloc] init];
     mgr.delegate = delegate;
     underlyingError = [NSError errorWithDomain:@"Test Domain" code:0 userInfo:nil];
+    builder = [[FakeQuestionBuilder alloc] init];
+    mgr.questionBuilder = builder;
 }
 
 -(void)tearDown{
     mgr = nil;
     delegate = nil;
     underlyingError = nil;
+    builder = nil;
 }
 
 -(void)testNonConformingObjectCannotBeDelegate{
@@ -65,11 +69,19 @@
 }
 
 -(void)testQuestionJSONIsPassedToQuestionBuilder{
-    FakeQuestionBuilder *builder = [[FakeQuestionBuilder alloc] init];
-    mgr.questionBuilder = builder;
     [mgr receivedQuestionsJSON:@"Fake JSON"];
     STAssertEqualObjects(builder.JSON, @"Fake JSON", @"Downloaded JSON is sent to the builder");
     mgr.questionBuilder = nil;
+}
+
+-(void)testDelegateIsNotifiedOfErrorWhenQuestionBuilderFails{
+    builder.arrayToReturn = nil;
+    builder.errorToSet = underlyingError;
+    mgr.questionBuilder = builder;
+    [mgr receivedQuestionsJSON:@"Fake JSON"];
+    STAssertNotNil([[[delegate fetchError] userInfo] objectForKey:NSUnderlyingErrorKey], @"The delegate should have found out about the error");
+    mgr.questionBuilder = nil;
+    
 }
 
 @end

@@ -28,7 +28,13 @@
 }
 
 -(void)receivedQuestionsJSON:(NSString *)objectNotation{
-    NSArray *questions = [_questionBuilder questionsFromJSON:objectNotation error:NULL];
+    NSError *error = nil;
+    //in book has &error instead of error but &error crashes app. 
+    NSArray *questions = [_questionBuilder questionsFromJSON:objectNotation error:error];
+    if(!questions){
+        NSError *reportableError = [NSError errorWithDomain:StackOverflowManagerSearchFailedError code:StackOverflowManagerErrorQuestionSearchCode userInfo:[NSDictionary dictionaryWithObject:error forKey:NSUnderlyingErrorKey]];
+        [_delegate fetchingQuestionsFailedWithError:reportableError];
+    }
 }
 
 @end
