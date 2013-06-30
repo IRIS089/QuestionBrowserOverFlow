@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Topic.h"
+#import "StackOverflowManagerDelegate.h"
 
-@interface MockStackOverflowManagerDelegate : StackOverflowManagerDelegate
+@interface MockStackOverflowManagerDelegate : NSObject <StackOverflowManagerDelegate>
+
+@property (strong) NSError *fetchError;
+
+-(void)fetchingQuesitonsFailedWithError:(NSError *)error;
 
 @end

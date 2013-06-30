@@ -1,5 +1,5 @@
 //
-//  StackOverflowManagerDelegate.h
+//  QuestionBuilder.h
 //  BrowseStackOverflow
 //
 //  Created by William Cleeton on 6/30/13.
@@ -8,10 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@interface QuestionBuilder : NSObject
 
-@protocol StackOverflowManagerDelegate <NSObject>
-
--(void)fetchingQuestionsFailedWithError:(NSError *)error;
-
+-(NSArray *)questionsFromJSON:(NSString *)objectNotation error:(NSError *)error;
 
 @end

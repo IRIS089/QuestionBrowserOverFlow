@@ -21,4 +21,17 @@
     [_communicator searchForQuestionWithTag:[topic tag]];
 }
 
+-(void)searchingForQuestionsFailedWithError:(NSError *)error{
+    NSDictionary *errorInfo = [NSDictionary dictionaryWithObject:error forKey:NSUnderlyingErrorKey];
+    NSError *underlyingError = [NSError errorWithDomain:StackOverflowManagerSearchFailedError code:StackOverflowManagerErrorQuestionSearchCode userInfo:errorInfo];
+    [_delegate fetchingQuestionsFailedWithError:underlyingError];
+}
+
+-(void)receivedQuestionsJSON:(NSString *)objectNotation{
+    NSArray *questions = [_questionBuilder questionsFromJSON:objectNotation error:NULL];
+}
+
 @end
+
+NSString *StackOverflowManagerError = @"StackOverflowManagerError";
+NSString *StackOverflowManagerSearchFailedError = @"StackOverflowManagerSearchFailedError";

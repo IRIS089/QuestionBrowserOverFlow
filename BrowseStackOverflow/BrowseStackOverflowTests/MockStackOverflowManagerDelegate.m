@@ -10,4 +10,8 @@
 
 @implementation MockStackOverflowManagerDelegate
 
+-(void)fetchingQuesitonsFailedWithError:(NSError *)error{
+    self.fetchError = error;
+}
+
 @end
