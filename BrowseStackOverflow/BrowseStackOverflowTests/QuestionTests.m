@@ -61,7 +61,7 @@
 }
 
 -(void)testAcceptedAnswerIsFirst{
-    STAssertTrue([question.answers objectAtIndex: 0], @"Accepted answer comes first");
+    STAssertTrue([[question.answers objectAtIndex:0] isAccepted], @"Accepted answer comes first");
 }
 
 -(void)testHighScoreAnswerBeforeLow{
