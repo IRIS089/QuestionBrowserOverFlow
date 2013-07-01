@@ -11,7 +11,7 @@
 
 @implementation FakeQuestionBuilder
 
--(NSArray *)questionsFromJSON:(NSString *)objectNotation error:(NSError *)error{
+-(NSArray *)questionsFromJSON:(NSString *)objectNotation error:(NSError **)error{
     self.JSON = objectNotation;
     return _arrayToReturn;
 }

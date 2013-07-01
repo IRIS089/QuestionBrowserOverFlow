@@ -10,6 +10,6 @@
 
 @interface QuestionBuilder : NSObject
 
--(NSArray *)questionsFromJSON:(NSString *)objectNotation error:(NSError *)error;
+-(NSArray *)questionsFromJSON:(NSString *)objectNotation error:(NSError **)error;
 
 @end

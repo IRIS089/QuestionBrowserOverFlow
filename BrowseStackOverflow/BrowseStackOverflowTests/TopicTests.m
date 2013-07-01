@@ -28,7 +28,7 @@
 }
 
 -(void)testThatTopicHasTag{
-    STAssertEqualObjects(topic.tag, @"iPhone", @"Topics should have tags");
+    STAssertEqualObjects(topic.tag, @"iPhoneTag", @"Topics should have tags");
     
 }
 

@@ -23,19 +23,23 @@
 
 -(void)searchingForQuestionsFailedWithError:(NSError *)error{
     NSDictionary *errorInfo = [NSDictionary dictionaryWithObject:error forKey:NSUnderlyingErrorKey];
-    NSError *underlyingError = [NSError errorWithDomain:StackOverflowManagerSearchFailedError code:StackOverflowManagerErrorQuestionSearchCode userInfo:errorInfo];
-    [_delegate fetchingQuestionsFailedWithError:underlyingError];
+    NSError *reportableError = [NSError errorWithDomain:StackOverflowManagerSearchFailedError code:StackOverflowManagerErrorQuestionSearchCode userInfo:errorInfo];
+    [_delegate fetchingQuestionsOnTopic:nil failedWithError:reportableError];
 }
 
 -(void)receivedQuestionsJSON:(NSString *)objectNotation{
     NSError *error = nil;
-    //in book has &error instead of error but &error crashes app. 
-    NSArray *questions = [_questionBuilder questionsFromJSON:objectNotation error:error];
+    NSArray *questions = [_questionBuilder questionsFromJSON:objectNotation error:&error];
     if(!questions){
-        NSError *reportableError = [NSError errorWithDomain:StackOverflowManagerSearchFailedError code:StackOverflowManagerErrorQuestionSearchCode userInfo:[NSDictionary dictionaryWithObject:error forKey:NSUnderlyingErrorKey]];
+        NSDictionary *errorInfo = nil;
+        if(error){
+            errorInfo = [NSDictionary dictionaryWithObject:error forKey:NSUnderlyingErrorKey];
+        }
+        NSError *reportableError = [NSError errorWithDomain:StackOverflowManagerSearchFailedError code:StackOverflowManagerErrorQuestionSearchCode userInfo:errorInfo];
         [_delegate fetchingQuestionsFailedWithError:reportableError];
-    }
+        }
 }
+
 
 @end
 

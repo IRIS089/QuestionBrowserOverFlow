@@ -22,6 +22,7 @@
 -(void)searchingForQuestionsFailedWithError:(NSError *)error;
 -(void)receivedQuestionsJSON:(NSString *)objectNotation;
 
+
 extern NSString *StackOverflowManagerError;
 extern NSString *StackOverflowManagerSearchFailedError;
 

@@ -16,7 +16,7 @@
 -(void)setUp {
     question = [[Question alloc] init];
     question.date = [NSDate distantPast];
-    question.title = @"Do iPhones dream of electirc sheep?";
+    question.title = @"Do iPhones dream of electric sheep?";
     question.score = 42;
     
     Answer *accepted = [[Answer alloc] init];

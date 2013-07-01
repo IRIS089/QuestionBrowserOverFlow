@@ -12,6 +12,7 @@
 #import "Topic.h"
 #import "MockStackOverflowCommunicator.h"
 #import "FakeQuestionBuilder.h"
+#import "QuestionBuilder.h"
 
 @implementation QuestionCreationTests{
 @private
@@ -19,15 +20,26 @@
     MockStackOverflowManagerDelegate *delegate;
     NSError *underlyingError;
     FakeQuestionBuilder *builder;
+    NSArray *questionArray;
+    //I had to add this questionBuilder because testDelegateNotToldAboutErrorWhenQuestionsReceieved and testDelegateReceivesTheQuestionsDiscoveredBtManager would not compile otherwise.
+    FakeQuestionBuilder *questionBuilder;
 }
 
 -(void)setUp{
+    Question *question = [[Question alloc] init];
+    questionArray = [NSArray arrayWithObject:question];
+    
     mgr = [[StackOverflowManager alloc] init];
+    
     delegate = [[MockStackOverflowManagerDelegate alloc] init];
     mgr.delegate = delegate;
+    
     underlyingError = [NSError errorWithDomain:@"Test Domain" code:0 userInfo:nil];
+    
     builder = [[FakeQuestionBuilder alloc] init];
     mgr.questionBuilder = builder;
+    
+    questionBuilder = [[FakeQuestionBuilder alloc] init];
 }
 
 -(void)tearDown{
@@ -35,6 +47,8 @@
     delegate = nil;
     underlyingError = nil;
     builder = nil;
+    questionArray = nil;
+    questionBuilder = nil;
 }
 
 -(void)testNonConformingObjectCannotBeDelegate{
@@ -53,7 +67,7 @@
 -(void)testAskingForQuestionsMeansRequestData{
     MockStackOverflowCommunicator *communicator = [[MockStackOverflowCommunicator alloc] init];
     mgr.communicator = communicator;
-    Topic *topic = [[Topic alloc] initWithName:@"iPhone" tag:@"iphone"];
+    Topic *topic = [[Topic alloc] initWithName:@"iPhone" tag:@"iPhoneTag"];
     [mgr fetchQuestionsOnTopic:topic];
     STAssertTrue([communicator wasAskedToFetchQuestions], @"The communicator should need to fetch data");
 }
@@ -77,11 +91,22 @@
 -(void)testDelegateIsNotifiedOfErrorWhenQuestionBuilderFails{
     builder.arrayToReturn = nil;
     builder.errorToSet = underlyingError;
-    mgr.questionBuilder = builder;
     [mgr receivedQuestionsJSON:@"Fake JSON"];
     STAssertNotNil([[[delegate fetchError] userInfo] objectForKey:NSUnderlyingErrorKey], @"The delegate should have found out about the error");
     mgr.questionBuilder = nil;
     
+}
+
+-(void)testDelegateNotToldAboutErrorWhenQuestionsReceieved{
+    questionBuilder.arrayToReturn = questionArray;
+    [mgr receivedQuestionsJSON:@"Fake JSON"];
+    STAssertNil([delegate fetchError], @"No error should be received on success");
+}
+
+-(void)testDelegateReceivesTheQuestionsDiscoveredBtManager{
+    questionBuilder.arrayToReturn = questionArray;
+    [mgr receivedQuestionsJSON:@"Fake JSON"];
+    STAssertEqualObjects([delegate receivedQuestions], questionArray, @"The manager should have sent its questions to the delegate");
 }
 
 @end
