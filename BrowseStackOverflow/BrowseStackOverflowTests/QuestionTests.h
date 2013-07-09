@@ -11,11 +11,13 @@
 
 @class Question;
 @class Answer;
+@class Person;
 
 @interface QuestionTests : SenTestCase {
     Question *question;
     Answer *lowScore;
     Answer *highScore;
+    Person *asker;
 }
 
 @end

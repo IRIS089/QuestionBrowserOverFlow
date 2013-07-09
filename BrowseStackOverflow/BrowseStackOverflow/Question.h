@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Person.h"
 
 @class Answer;
 
@@ -18,6 +19,9 @@
 @property (readwrite) NSInteger score;
 @property (readwrite) NSString *title;
 @property (readonly) NSArray *answers;
+@property (readwrite) NSInteger questionID;
+@property (readwrite) Person *asker;
+@property (readwrite) NSString *body;
 
 -(void)addAnswer:(Answer *)answer;
 

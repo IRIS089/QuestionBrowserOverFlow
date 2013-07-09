@@ -11,7 +11,7 @@
 @implementation MockStackOverflowCommunicator {
     BOOL wasAskedToFetchQuestions;
 }
--(void)searchForQuestionWithTag:(NSString *)tag{
+-(void)searchForQuestionsWithTag:(NSString *)tag{
     wasAskedToFetchQuestions = YES;
 }
 -(BOOL)wasAskedToFetchQuestions{

@@ -12,7 +12,7 @@
 @implementation TopicTests
 
 -(void)setUp{
-    topic = [[Topic alloc] initWithName:@"iPhone" tag:@"iPhoneTag"];
+    topic = [[Topic alloc] initWithName:@"iPhone" tag:@"iphone"];
 }
 
 -(void)tearDown{
@@ -28,7 +28,7 @@
 }
 
 -(void)testThatTopicHasTag{
-    STAssertEqualObjects(topic.tag, @"iPhoneTag", @"Topics should have tags");
+    STAssertEqualObjects(topic.tag, @"iphone", @"Topics should have tags");
     
 }
 

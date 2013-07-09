@@ -14,5 +14,6 @@
 
 -(void)fetchingQuestionsFailedWithError:(NSError *)error;
 -(void)fetchingQuestionsOnTopic:(Topic *)topic failedWithError:(NSError *)error;
+-(void)didRecieveQuestions:(NSArray *)questions;
 
 @end

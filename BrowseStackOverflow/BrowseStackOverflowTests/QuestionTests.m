@@ -32,7 +32,8 @@
     highScore.score = 4;
     [question addAnswer:highScore];
     
-    
+    asker = [[Person alloc] initWithName:@"Graham Lee" avatarLocation:@"http://example.com/avatar.png"];
+    question.asker = asker;
 }
 
 -(void)tearDown{
@@ -71,5 +72,8 @@
     STAssertTrue(highIndex < lowIndex, @"High-scoring answer comes first");
 }
 
+-(void)testQuestionWasAskedBySomeone{
+    STAssertEqualObjects(question.asker, asker, @"Question should keep track of who asked it");
+}
 
 @end

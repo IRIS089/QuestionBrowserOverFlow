@@ -20,6 +20,20 @@
                ReferencedContainer = "container:BrowseStackOverflow.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "47887CD4177D01870012D3A2"
+               BuildableName = "BrowseStackOverflowTests.octest"
+               BlueprintName = "BrowseStackOverflowTests"
+               ReferencedContainer = "container:BrowseStackOverflow.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

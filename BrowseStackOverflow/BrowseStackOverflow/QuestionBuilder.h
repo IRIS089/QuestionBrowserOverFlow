@@ -8,8 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+@class Question;
+
 @interface QuestionBuilder : NSObject
 
 -(NSArray *)questionsFromJSON:(NSString *)objectNotation error:(NSError **)error;
+-(NSArray *)fillInDetailsForQuestion:(Question *)question fromJSON:(NSString *)JSON;
+
+extern NSString *QuestionBuilderErrorDomain;
+
+enum{
+    QuestionBuilderInvalidJSONError,
+    QuestionBuilderMissingDataError,
+};
 
 @end

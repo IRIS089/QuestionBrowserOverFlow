@@ -10,10 +10,16 @@
 
 @implementation MockStackOverflowManagerDelegate
 
--(void)fetchingQuesitonsFailedWithError:(NSError *)error{
-    self.fetchError = error;
+-(void)fetchingQuestionsFailedWithError:(NSError *)error{
+    _fetchError = error;
 }
 
+-(void)fetchingQuestionsOnTopic:(Topic *)topic failedWithError:(NSError *)error{
+    _fetchError = error;
+}
 
+-(void)didRecieveQuestions:(NSArray *)questions{
+    _receivedQuestions =questions;
+}
 
 @end

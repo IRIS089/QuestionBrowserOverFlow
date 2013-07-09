@@ -21,9 +21,10 @@
 -(void)fetchQuestionsOnTopic:(Topic *)topic;
 -(void)searchingForQuestionsFailedWithError:(NSError *)error;
 -(void)receivedQuestionsJSON:(NSString *)objectNotation;
+-(void)fetchBodyForQuestion:(Question *)questionToFetch;
+-(void)fetchingQuestionBodyFailedWithError:(NSError *)error;
+-(void)receivedQuestionBodyJSON:(NSString *)quesitonBodyJSON;
 
-
-extern NSString *StackOverflowManagerError;
 extern NSString *StackOverflowManagerSearchFailedError;
 
 enum{StackOverflowManagerErrorQuestionSearchCode};
