@@ -31,6 +31,8 @@
     STAssertNoThrow([dataSource setTopics:topicsList], @"The data source needs a list of topics");
 }
 
-
+-(void)testOneTableRowForOneTopic{
+    STAssertEquals((NSInteger)[topicsList count], [dataSource tableView:nil numberOfRowsInSection:0], @"As there's one topic, there should be one row in the table");
+}
 
 @end
