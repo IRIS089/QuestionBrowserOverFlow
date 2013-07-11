@@ -35,4 +35,12 @@
     STAssertEquals((NSInteger)[topicsList count], [dataSource tableView:nil numberOfRowsInSection:0], @"As there's one topic, there should be one row in the table");
 }
 
+-(void)testTwoTableRowsForTwoTopics{
+    Topic *topic1 = [[Topic alloc] initWithName:@"Mac OS X" tag:@"macosx"];
+    Topic *topic2 = [[Topic alloc] initWithName:@"Cocoa" tag:@"cocoa"];
+    
+    NSArray *twoTopicList = [NSArray arrayWithObjects:topic1, topic2, nil];
+    [dataSource setTopics:twoTopicList];
+    STAssertEquals((NSInteger)[twoTopicList count], [dataSource tableView:nil numberOfRowsInSection:0], @"There should be two rows in the table for two topics");
+}
 @end
