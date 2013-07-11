@@ -43,4 +43,8 @@
     [dataSource setTopics:twoTopicList];
     STAssertEquals((NSInteger)[twoTopicList count], [dataSource tableView:nil numberOfRowsInSection:0], @"There should be two rows in the table for two topics");
 }
+
+-(void)testOneSectionInTheTableView{
+    STAssertThrows([dataSource tableView:nil numberOfRowsInSection:1], @"Data Source doesn't allow asking about additional sections");
+}
 @end
