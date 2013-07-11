@@ -57,7 +57,7 @@
 		47CF1960178EF8A500FA739A /* TopicTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CF195F178EF8A500FA739A /* TopicTableDataSource.m */; };
 		47CF1963178EF91D00FA739A /* EmptyTableViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CF1962178EF91D00FA739A /* EmptyTableViewDelegate.m */; };
 		47CF1964178EFADD00FA739A /* TopicTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CF195F178EF8A500FA739A /* TopicTableDataSource.m */; };
-		47CF1967178EFB6E00FA739A /* TopicTableViewDataSourcesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CF1966178EFB6E00FA739A /* TopicTableViewDataSourcesTests.m */; };
+		47CF1967178EFB6E00FA739A /* TopicTableViewDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47CF1966178EFB6E00FA739A /* TopicTableViewDataSourceTests.m */; };
 		47EA2E3E1781E92800853787 /* QuestionBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EA2E3D1781E92800853787 /* QuestionBuilderTests.m */; };
 		47EA2E451784996B00853787 /* StackOverflowCommunicatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EA2E441784996B00853787 /* StackOverflowCommunicatorTests.m */; };
 		47EA2E4817849D9E00853787 /* InspectableStackOverflowCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EA2E4717849D9D00853787 /* InspectableStackOverflowCommunicator.m */; };
@@ -144,8 +144,8 @@
 		47CF195F178EF8A500FA739A /* TopicTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TopicTableDataSource.m; path = BrowseStackOverflowTests/TopicTableDataSource.m; sourceTree = SOURCE_ROOT; };
 		47CF1961178EF91D00FA739A /* EmptyTableViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyTableViewDelegate.h; sourceTree = "<group>"; };
 		47CF1962178EF91D00FA739A /* EmptyTableViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyTableViewDelegate.m; sourceTree = "<group>"; };
-		47CF1965178EFB6E00FA739A /* TopicTableViewDataSourcesTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicTableViewDataSourcesTests.h; sourceTree = "<group>"; };
-		47CF1966178EFB6E00FA739A /* TopicTableViewDataSourcesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicTableViewDataSourcesTests.m; sourceTree = "<group>"; };
+		47CF1965178EFB6E00FA739A /* TopicTableViewDataSourceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicTableViewDataSourceTests.h; sourceTree = "<group>"; };
+		47CF1966178EFB6E00FA739A /* TopicTableViewDataSourceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicTableViewDataSourceTests.m; sourceTree = "<group>"; };
 		47EA2E3C1781E92800853787 /* QuestionBuilderTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionBuilderTests.h; sourceTree = "<group>"; };
 		47EA2E3D1781E92800853787 /* QuestionBuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionBuilderTests.m; sourceTree = "<group>"; };
 		47EA2E431784996B00853787 /* StackOverflowCommunicatorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackOverflowCommunicatorTests.h; sourceTree = "<group>"; };
@@ -263,8 +263,8 @@
 				47CF195C178EEE5F00FA739A /* BrowseOverflowViewControllerTests.m */,
 				47CF1961178EF91D00FA739A /* EmptyTableViewDelegate.h */,
 				47CF1962178EF91D00FA739A /* EmptyTableViewDelegate.m */,
-				47CF1965178EFB6E00FA739A /* TopicTableViewDataSourcesTests.h */,
-				47CF1966178EFB6E00FA739A /* TopicTableViewDataSourcesTests.m */,
+				47CF1965178EFB6E00FA739A /* TopicTableViewDataSourceTests.h */,
+				47CF1966178EFB6E00FA739A /* TopicTableViewDataSourceTests.m */,
 			);
 			path = BrowseStackOverflowTests;
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 				47CF195D178EEE5F00FA739A /* BrowseOverflowViewControllerTests.m in Sources */,
 				47CF1960178EF8A500FA739A /* TopicTableDataSource.m in Sources */,
 				47CF1963178EF91D00FA739A /* EmptyTableViewDelegate.m in Sources */,
-				47CF1967178EFB6E00FA739A /* TopicTableViewDataSourcesTests.m in Sources */,
+				47CF1967178EFB6E00FA739A /* TopicTableViewDataSourceTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Ryan Cleeton. All rights reserved.
 //
 
-#import "TopicTableViewDataSourcesTests.h"
+#import "TopicTableViewDataSourceTests.h"
 #import "TopicTableDataSource.h"
 #import "Topic.h"
 
-@implementation TopicTableViewDataSourcesTests{
+@implementation TopicTableViewDataSourceTests{
     TopicTableDataSource *dataSource;
     NSArray *topicsList;
 }

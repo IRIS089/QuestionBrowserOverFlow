@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface TopicTableViewDataSourcesTests : SenTestCase
+@interface TopicTableViewDataSourceTests : SenTestCase
 
 @end
