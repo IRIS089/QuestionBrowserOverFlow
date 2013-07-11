@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TopicTableDataSource.h"
+#import "TopicTableDelegate.h"
 
 @interface BrowseOverflowViewController : UIViewController
 
 @property (strong) UITableView *tableView;
-@property (strong) id <UITableViewDataSource> dataSource;
-@property (strong) id <UITableViewDelegate> tableViewDelegate;
+@property (strong) TopicTableDataSource *dataSource;
+@property (strong) TopicTableDelegate *tableViewDelegate;
 
 @end

@@ -57,4 +57,17 @@
     NSIndexPath *afterLastTopic = [NSIndexPath indexPathForRow:[topicsList count] inSection:0];
     STAssertThrows([dataSource tableView:nil cellForRowAtIndexPath:afterLastTopic], @"Data source will not prepare more cells than there are topics");
 }
+
+-(void)testCellCreatedByDataSourceContainsTopicTitleAsTextLabel{
+    NSIndexPath *firstTopic = [NSIndexPath indexPathForRow:0 inSection:0];
+    UITableViewCell *firstCell = [dataSource tableView:nil cellForRowAtIndexPath:firstTopic];
+    NSString *cellTitle = firstCell.textLabel.text;
+    STAssertEqualObjects(@"iPhone", cellTitle, @"Cell's title should be equal to the topic's title");
+}
+
+-(void)testDataSourceIndicatesWhichTopicIsRepresentedForAnIndexPath{
+    NSIndexPath *firstRow = [NSIndexPath indexPathForRow:0 inSection:0];
+    Topic *firstTopic = [dataSource topicForIndexPath:firstRow];
+    STAssertEqualObjects(firstTopic.tag, @"iphone", @"The iPhone Topic is at row 0");
+}
 @end

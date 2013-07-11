@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Topic.h"
+
 
 @interface TopicTableDataSource : NSObject <UITableViewDataSource>
 
 @property (nonatomic) NSArray *topics;
 
 -(void)setTopics:(NSArray *)newTopics;
+-(Topic *)topicForIndexPath:(NSIndexPath *)indexPath;
 
 @end

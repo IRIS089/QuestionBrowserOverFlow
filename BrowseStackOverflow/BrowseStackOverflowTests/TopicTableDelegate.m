@@ -6,8 +6,10 @@
 //  Copyright (c) 2013 Ryan Cleeton. All rights reserved.
 //
 
-#import "EmptyTableViewDelegate.h"
+#import "TopicTableDelegate.h"
 
-@implementation EmptyTableViewDelegate
+@implementation TopicTableDelegate
+
+@synthesize tableDataSource;
 
 @end

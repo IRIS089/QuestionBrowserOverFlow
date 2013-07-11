@@ -31,6 +31,7 @@
     [super viewDidLoad];
     self.tableView.delegate = self.tableViewDelegate;
     self.tableView.dataSource = self.dataSource;
+    self.tableViewDelegate.tableDataSource = dataSource;
 }
 
 - (void)didReceiveMemoryWarning
