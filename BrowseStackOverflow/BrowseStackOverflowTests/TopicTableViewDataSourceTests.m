@@ -47,4 +47,14 @@
 -(void)testOneSectionInTheTableView{
     STAssertThrows([dataSource tableView:nil numberOfRowsInSection:1], @"Data Source doesn't allow asking about additional sections");
 }
+
+-(void)testDataSourceCellCreationExpectsOneSection{
+    NSIndexPath *secondSection = [NSIndexPath indexPathForRow:0 inSection:1];
+    STAssertThrows([dataSource tableView:nil cellForRowAtIndexPath:secondSection], @"Data source will not prepare cells for unexpected sections");
+}
+
+-(void)testDataSourceCellCreationWillNotCreateMoreRowsThanItHasTopics{
+    NSIndexPath *afterLastTopic = [NSIndexPath indexPathForRow:[topicsList count] inSection:0];
+    STAssertThrows([dataSource tableView:nil cellForRowAtIndexPath:afterLastTopic], @"Data source will not prepare more cells than there are topics");
+}
 @end

@@ -10,8 +10,11 @@
 
 @implementation TopicTableDataSource
 
+@synthesize topics;
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 0;
+    NSParameterAssert(section == 0);
+    return [topics count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -19,7 +22,8 @@
 }
 
 -(void)setTopics:(NSArray *)newTopics{
-    _topics = newTopics;
+    topics = newTopics;
 }
+
 
 @end
