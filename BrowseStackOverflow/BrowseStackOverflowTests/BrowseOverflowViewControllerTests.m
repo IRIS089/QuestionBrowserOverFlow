@@ -27,7 +27,12 @@
 }
 
 -(void)testViewControllerHasADataSourceProperty{
+    objc_property_t delegateSourceProperty = class_getProperty([viewController class], "tableViewDelegate");
+    STAssertTrue(dataSourceProperty != NULL, @"View controller needs a data source");
+}
+
+-(void)testViewControllerHasATableViewDelegateProperty{
     objc_property_t delegateProperty = class_getProperty([viewController class], "tableViewDelegate");
-    
+    STAssertTrue(delegateProperty != NULL, @"View Controller needs a table view delegate");
 }
 @end
