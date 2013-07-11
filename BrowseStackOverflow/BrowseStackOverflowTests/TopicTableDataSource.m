@@ -18,4 +18,8 @@
     return nil;
 }
 
+-(void)setTopics:(NSArray *)newTopics{
+    _topics = newTopics;
+}
+
 @end

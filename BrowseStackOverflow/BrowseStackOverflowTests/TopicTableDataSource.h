@@ -10,4 +10,8 @@
 
 @interface TopicTableDataSource : NSObject <UITableViewDataSource>
 
+@property (nonatomic) NSArray *topics;
+
+-(void)setTopics:(NSArray *)newTopics;
+
 @end
