@@ -10,4 +10,15 @@
 
 @implementation NonNetworkedStackOverflowCommunicator
 
+-(void)launchConnectionForRequest:(NSURLRequest *)request{
+    
+}
+
+-(void)setReceivedData:(NSData *)data{
+    receivedData = [data mutableCopy];
+}
+
+-(NSData *)receivedData{
+    return [receivedData copy];
+}
 @end

@@ -12,9 +12,13 @@
 #import "Topic.h"
 #import "QuestionBuilder.h"
 
-@interface StackOverflowManager : NSObject 
+@interface StackOverflowManager : NSObject {
+@protected
+    NSURL *fetchingURL;
+    NSURLConnection *fetchingConnection;
+}
 
-@property (weak, nonatomic) id<StackOverflowManagerDelegate> delegate;
+@property (weak, nonatomic) id <StackOverflowManagerDelegate> delegate;
 @property (strong) StackOverflowCommunicator *communicator;
 @property (strong) QuestionBuilder *questionBuilder;
 
@@ -25,8 +29,10 @@
 -(void)fetchingQuestionBodyFailedWithError:(NSError *)error;
 -(void)receivedQuestionBodyJSON:(NSString *)quesitonBodyJSON;
 
+
 extern NSString *StackOverflowManagerSearchFailedError;
 
 enum{StackOverflowManagerErrorQuestionSearchCode};
 
 @end
+
